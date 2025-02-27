@@ -6,6 +6,15 @@
 #define MAX 1000000
 
 
+void find_2_O_n2(int arr[], int gr, int a, int& i, int& j) {
+    i = j = 0;
+    for(; i < gr-1; i++){
+        for(j = i+1; j < gr; j++){
+            if(arr[i] + arr[j] == a && i != j) return;
+        }
+    }
+}
+
 int step(int cnt_0){
     return cnt_0 >= 1000 ? (cnt_0 >= 10000 ? 10000: 1000) : 100;
 }
@@ -40,6 +49,7 @@ int main(){
             auto begin = std::chrono::steady_clock::now();
             for(unsigned j = 10000; j != 0; --j){
                 int l, r;
+                //find_2_O_n2(x, cnt, dstr(rng), l, r)
                 ftn(x, cnt, dstr(rng), l, r); //                        тут исследуемая функция
             }
 
