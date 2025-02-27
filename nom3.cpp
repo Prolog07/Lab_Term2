@@ -7,7 +7,7 @@
 
 
 int step(int cnt_0){
-    return cnt_0 >= 1000 ? (cnt_0 >= 10000 ? (cnt_0 >= 100000 ? 100000 : 10000): 1000) : 100;
+    return (cnt_0 >= 1000 ? (cnt_0 >= 10000 ? (cnt_0 >= 100000 ? 100000 : 10000): 1000) : 100);
 }
 
 int find_O_n_A(int gr, int (&arr)[N], int x) {
@@ -59,7 +59,7 @@ int main(){
     int x[N];
     
 
-    for(unsigned cnt = 100; cnt <= N; cnt += step(cnt)){        //изменяем шаг, чтобы не считать слишком долго  
+    for(unsigned cnt = 100; cnt <= N; cnt += step(cnt)){         
         for(unsigned i = 0; i < cnt; ++i) x[i] = dstr(rng);
         int arr0[N] = {0};
         
@@ -67,7 +67,7 @@ int main(){
         auto begin = std::chrono::steady_clock::now();
         for(unsigned j = 10000; j != 0; --j){
             unsigned zn = dstr(rng);
-            if (zn > MAX*0.75) zn = MAX*0.75;       // теперь MAX*0,75 выпадает сильно чаще, чем другие числа
+            if (zn > MAX*0.75) zn = MAX*0.75;       
 
             find_O_n_A(cnt, x, zn); //                        тут исследуемая функция
             //find_O_n_C(cnt, x, dstr(rng), arr0);
